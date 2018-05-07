@@ -63,7 +63,7 @@ body {
 }
 
 /* Chevron to go to content has a nice color animation*/
-.hero > .hero-text::after {
+.hero > .hero-text > .page-down::after {
   content: "\f078";
   font-family: FontAwesome;
   color: rgb(118, 116, 186);
@@ -75,7 +75,7 @@ body {
 }
 
 /* Show that the chevron is clickable */
-.hero > .hero-text:hover::after {
+.hero > .hero-text > .page-down:hover {
   cursor: pointer;
 }
 
