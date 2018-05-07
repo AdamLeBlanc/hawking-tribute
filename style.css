@@ -36,23 +36,24 @@ body {
 }
 
 /* Box for text */
-.hero-text {
+.hero > .hero-text {
   padding: 15px 5px;
   background-color: rgba(0, 0, 0, 0.4);
   color: white;
   text-align: center;
+  font-size: 1rem;
 }
 
 /* Title area for the hero */
-.hero-text > .header {
+.hero > .hero-text > .header {
   position: relative;
-  font-size: 1.8rem;
+  font-size: 1.8em;
   margin-bottom: 5px;
   margin: 0;
 }
 
 /* Sub heading */
-.hero-text > .header::after {
+.hero > .hero-text > .header::after {
   content: "1942 \f193 \ 2018";
   font-family: FontAwesome;
   margin-left: 10px;
@@ -62,7 +63,7 @@ body {
 }
 
 /* Chevron to go to content has a nice color animation*/
-.hero-text::after {
+.hero > .hero-text::after {
   content: "\f078";
   font-family: FontAwesome;
   color: rgb(118, 116, 186);
@@ -74,7 +75,7 @@ body {
 }
 
 /* Show that the chevron is clickable */
-.hero-text:hover::after {
+.hero > .hero-text:hover::after {
   cursor: pointer;
 }
 
@@ -199,4 +200,59 @@ ul.timeline > li > .content > .header {
   text-align: center;
   color: rgb(27, 45, 91);
   position: relative;
+}
+
+/* computers */
+@media (min-width: 768px) {
+  /* Scale Hero text up a bit */
+  .hero > .hero-text {
+    font-size: 1.4rem;
+  }
+
+  ul.timeline {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Move line into middle */
+  ul.timeline::after {
+    transform: translate(-50%);
+    left: 50%;
+  }
+
+  ul.timeline > li {
+    width: 50%;
+  }
+
+  ul.timeline > li:nth-child(even) {
+    align-self: flex-end;
+  }
+  ul.timeline > li:nth-child(even) {
+    padding-left: 55px;
+  }
+
+  ul.timeline > li:nth-child(even) > [data-date].content::after {
+    right: 100%;
+  }
+
+  ul.timeline > li:nth-child(even) > .content::before {
+    border-width: 20px 20px 20px 0;
+    border-color: transparent whitesmoke transparent transparent;
+    border-style: solid;
+    top: 20px;
+    right: initial;
+    left: 35px;
+  }
+
+  ul.timeline > li:nth-child(odd) {
+    padding-right: 55px;
+  }
+
+  ul.timeline > li:nth-child(odd) > .content::before {
+    right: 35px;
+  }
+
+  ul.timeline > li:nth-child(odd) > [data-date].content::after {
+    right: 0px;
+  }
 }
