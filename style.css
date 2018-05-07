@@ -1,0 +1,202 @@
+/* border-box because it's better and easier */
+* {
+  box-sizing: border-box;
+}
+
+/* setup some globals */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(102, 104, 109);
+}
+
+/* underline something (set text-alignment to center on what you want to underline) */
+.underline-center::before {
+  content: " ";
+  height: 2px;
+  width: 80%;
+  background-color: rgba(200, 200, 200, 0.5);
+  position: absolute;
+  top: 105%;
+  left: 10%;
+}
+
+/* 
+  The main hero at the top of the page
+  it is full width and fills the viewport
+*/
+.hero {
+  background-image: url("http://cdn.natgeotv.com.au/shows/thumbnails/ngc-geniusbystephenhawking.jpg?v=29&azure=false&scale=both&width=1280&height=720&mode=crop");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Box for text */
+.hero-text {
+  padding: 15px 5px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  text-align: center;
+}
+
+/* Title area for the hero */
+.hero-text > .header {
+  position: relative;
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+  margin: 0;
+}
+
+/* Sub heading */
+.hero-text > .header::after {
+  content: "1942 \f193 \ 2018";
+  font-family: FontAwesome;
+  margin-left: 10px;
+  font-size: 0.5em;
+  color: gray;
+  word-spacing: 3px;
+}
+
+/* Chevron to go to content has a nice color animation*/
+/* TODO: Add JS to make it work */
+.hero-text::after {
+  content: "\f078";
+  font-family: FontAwesome;
+  color: rgb(118, 116, 186);
+  font-size: 2em;
+  padding: 25px;
+  margin: -25px;
+  animation: color-shift 5s ease-in-out infinite;
+  transform-origin: color center bottom;
+}
+
+/* Show that the chevron is clickable */
+.hero-text:hover::after {
+  cursor: pointer;
+}
+
+/* Animation for the chevron */
+@keyframes color-shift {
+  0% {
+    color: rgb(118, 116, 186);
+  }
+
+  50% {
+    color: rgb(27, 45, 91);
+  }
+}
+
+/* 
+  The main content area.
+  Gave it a max-width so the timeline doesn't get weird.
+  Flex to keep timeline centered
+ */
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 
+  The timeline for the page
+  remove list styles and make room for the line on the right
+  display is flex so it is easier to do two sided timeline on bigger
+  screens.
+  Sets the start font size to the same as the root (16px generally)
+ */
+ul.timeline {
+  list-style: none;
+  position: relative;
+  margin: 0 40px 0 0;
+  padding: 0 50px 0 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+/* The actual timeline line. On the left side */
+ul.timeline::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  width: 6px;
+  background-color: white;
+}
+
+/* 
+  The timeline entries.
+  give some padding around the actual content.
+  This again makes life easier when doing two sides for bigger screens
+ */
+ul.timeline > li {
+  background: inherit;
+  margin: 0;
+  padding: 10px;
+  position: relative;
+}
+
+/* 
+  The actual timeline content areas.
+  Seperate content area so that we have an easier time doing split timelines
+ */
+ul.timeline > li > .content {
+  background-color: whitesmoke;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+/* The arrow pointing to the date */
+ul.timeline > li > .content::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 1;
+  border-width: 20px 0 20px 20px;
+  border-color: transparent transparent transparent whitesmoke;
+  border-style: solid;
+  top: 20px;
+  right: -10px;
+}
+
+/* The date */
+ul.timeline > li > [data-date].content::after {
+  content: attr(data-date);
+  position: absolute;
+  z-index: 2;
+  color: whitesmoke;
+  border: 3px solid rgb(118, 116, 186);
+  background-color: rgb(27, 45, 91);
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 1.1em;
+  top: 15px;
+  right: -53px;
+  transform: translate(50%);
+}
+
+/* Make the content body a bit bigger */
+ul.timeline > li > .content > .body {
+  font-size: 1.1em;
+}
+
+/* The timeline entry header */
+ul.timeline > li > .content > .header {
+  margin: 0;
+  font-size: 1.6em;
+  text-align: center;
+  color: rgb(27, 45, 91);
+  position: relative;
+}
