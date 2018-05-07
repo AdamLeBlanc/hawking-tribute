@@ -62,7 +62,6 @@ body {
 }
 
 /* Chevron to go to content has a nice color animation*/
-/* TODO: Add JS to make it work */
 .hero-text::after {
   content: "\f078";
   font-family: FontAwesome;
@@ -97,6 +96,7 @@ body {
  */
 main {
   max-width: 1280px;
+  min-height: 100vh; /* makes it so we can hide the entire hero no matter what */
   margin: 0 auto;
   padding: 0;
   position: relative;
