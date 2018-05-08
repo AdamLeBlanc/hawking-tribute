@@ -191,6 +191,7 @@ ul.timeline > li > [data-date].content::after {
 /* Make the content body a bit bigger */
 ul.timeline > li > .content > .body {
   font-size: 1.1em;
+  line-height: 1.3em;
 }
 
 /* The timeline entry header */
@@ -208,7 +209,7 @@ footer {
   color: whitesmoke;
   font-size: 1.5em;
   text-align: center;
-  padding: 50px;
+  padding: 10px 0 0 0;
 }
 
 footer > blockquote {
@@ -219,8 +220,22 @@ footer > blockquote > p {
   margin: 0;
 }
 
+footer > p > a {
+  color: rgb(200, 200, 200);
+  text-decoration: none;
+}
+
+footer > p > a:hover {
+  color: whitesmoke;
+  text-decoration: underline;
+}
+
+footer > p > a:visited {
+  color: rgb(200, 200, 200);
+}
+
 footer > .social {
-  margin: 20px;
+  margin: 20px 0 0 0;
   font-size: 2em;
 }
 
