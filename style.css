@@ -202,6 +202,38 @@ ul.timeline > li > .content > .header {
   position: relative;
 }
 
+footer {
+  background: linear-gradient(to right, rgb(27, 45, 91), rgb(118, 116, 186));
+  margin: 0;
+  color: whitesmoke;
+  font-size: 1.5em;
+  text-align: center;
+  padding: 50px;
+}
+
+footer > blockquote {
+  margin: 0;
+}
+
+footer > blockquote > p {
+  margin: 0;
+}
+
+footer > .social {
+  margin: 20px;
+  font-size: 2em;
+}
+
+footer > .social > a {
+  margin: 20px;
+  font-size: 2em;
+  color: whitesmoke;
+}
+
+footer > .social > a:hover {
+  color: rgb(150, 150, 150);
+}
+
 /* computers */
 @media (min-width: 768px) {
   /* Scale Hero text up a bit */
